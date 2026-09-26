@@ -7,11 +7,18 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: geode-sdk/build-geode-mod@v1
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Geode CLI
+        uses: geode-sdk/setup-geode@v1
         with:
           geode-version: "5.10.1"
-      - name: Upload artifact
+
+      - name: Build mod
+        run: geode build
+
+      - name: Upload compiled mod
         uses: actions/upload-artifact@v4
         with:
           name: mod
