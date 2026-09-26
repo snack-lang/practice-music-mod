@@ -5,17 +5,14 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    container: ghcr.io/geode-sdk/cli:5.10.1
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        target: [win]
     steps:
-      - name: Checkout source
-        uses: actions/checkout@v4
-
-      - name: Build mod
-        run: geode build
-
-      - name: Upload compiled mod
-        uses: actions/upload-artifact@v4
+      - uses: actions/checkout@v4
+      - name: Build Geode Mod
+        uses: geode-sdk/build-geode-mod@v1
         with:
-          name: mod
-          path: build/*.geode
+          geode-version: "5.10.1"
+          target: ${{ matrix.target }}
