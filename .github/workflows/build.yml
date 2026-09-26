@@ -5,15 +5,11 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    container: ghcr.io/geode-sdk/cli:5.10.1
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
-
-      - name: Setup Geode CLI
-        uses: geode-sdk/setup-geode@v1
-        with:
-          geode-version: "5.10.1"
 
       - name: Build mod
         run: geode build
