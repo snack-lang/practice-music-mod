@@ -1,0 +1,15 @@
+{
+	"id": "snake.practicekeeporiginalmusic",
+	"name": "PracticeKeepOriginalMusic",
+	"version": "v1.0.0",
+	"developer": "snake",
+	"description": "练习模式保留关卡原音乐",
+	"geode": "5.10.1",
+	"settings": {
+		"enable": {
+			"name": "启用练习模式保留原BGM",
+			"type": "bool",
+			"default": true
+		}
+	}
+}
